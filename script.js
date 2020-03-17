@@ -8,10 +8,19 @@ const formSearch = document.querySelector('.form-search'),
 const cities = ['Kyiv', 'Lviv', 'Istambul', 'Warsaw', 'Krakow', 'Gdansk', 'Minsk', 'London', 'Paris', 'Stockholm', 'Tokyo', 'Dubai', 'Lisbon'];
 
 inputCitiesFrom.addEventListener('input', () => {
+
+    dropdownCitiesFrom.append = '';
+
     const filterCity = cities.filter((item) => {
         const fixItem = item.toLowerCase();
         return fixItem.includes(inputCitiesFrom.value.toLowerCase());
     });
 
-    console.log(filterCity);
+    filterCity.forEach((item) => {
+        const li = document.createElement('li');
+        li.classList.add('dropdown__city');
+        li.textContent = item;
+        dropdownCitiesFrom.append(li);
+    });
+
 });
