@@ -36,6 +36,23 @@ inputCitiesFrom.addEventListener('input', () => {
     showCity(inputCitiesFrom, dropdownCitiesFrom);
 });
 
+dropdownCitiesFrom.addEventListener('click', (event) => {
+    const target = event.target;
+    if (target.tagName.toUpperCase() === 'LI') {
+        inputCitiesFrom.value = target.textContent;
+        dropdownCitiesFrom.textContent = '';
+    }
+});
+
+
 inputCitiesTo.addEventListener('input', () => {
     showCity(inputCitiesTo, dropdownCitiesTo);
+});
+
+dropdownCitiesTo.addEventListener('click', (event) => {
+    const target = event.target;
+    if (target.tagName.toUpperCase() === 'LI') {
+        inputCitiesTo.value = target.textContent;
+        dropdownCitiesTo.textContent = '';
+    }
 });
